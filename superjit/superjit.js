@@ -8,16 +8,40 @@ audio = document.getElementById("cool");
 nextBtn = document.getElementById("nextBtn");
 prevBtn = document.getElementById("prevBtn");
 hi = document.getElementById("cool2");
+dropDown = document.getElementById("dropDown");
+option = document.createElement("option");
+options = [];
+
+for (i = 0; i < tracks.length; i++) {
+    option.text = tracks[i].name;
+    option.value = i;
+    options.push(option.outerHTML);
+}
+
+dropDown.insertAdjacentHTML('beforeEnd', options.join("\n"));
+
+/*for (a in options) {
+    console.log(options[a]);
+}*/
+
 //Index storing the current song
 index = 0;
 
 updatePlaylist();
 
 //Updates the audio source according to the array
+
 function updatePlaylist() {
     audio.src = mediaPath + tracks[index].file + tracks[index].extension;
     hi.innerHTML = "Now playing: " + "<b>" + tracks[index].name + "</b>";
     //console.log(index);
+    dropDown.value = index;
+}
+
+function changeSong() {
+    audio.src = mediaPath + tracks[this.value].file + tracks[this.value].extension;
+    hi.innerHTML = "Now playing: " + "<b>" + tracks[this.value].name + "</b>";
+    index = this.value;
 }
 
 function incrementIndex() {
@@ -42,3 +66,4 @@ function decrementIndex() {
 
 nextBtn.addEventListener("click", incrementIndex);
 prevBtn.addEventListener("click", decrementIndex);
+dropDown.onchange = changeSong;
