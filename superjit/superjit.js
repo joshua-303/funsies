@@ -1,8 +1,8 @@
 //Index storing data for each track in the playlist
 
-tracks = [{"track":1, "name":"Canto IV: Who Denies All", "length":"3:03", "file":"lcb_WhoDeniesAll_OST", "extension":".mp3"},
-{"track":2, "name":"608B", "length":"2:52", "file":"608b_yume2kki", "extension":".ogg"},
-{"track":3, "name":"Honeycomb Lofi", "length":"1:41", "file":"Gucc_honeycomb_lofi", "extension":".ogg"}];
+tracks = [{"track":1, "name":"Canto IV: Who Denies All", "duration":"3:03", "file":"lcb_WhoDeniesAll_OST", "extension":".mp3"},
+{"track":2, "name":"608B", "duration":"2:52", "file":"608b_yume2kki", "extension":".ogg"},
+{"track":3, "name":"Honeycomb Lofi", "duration":"1:41", "file":"Gucc_honeycomb_lofi", "extension":".ogg"}];
 mediaPath = "audio/";
 audio = document.getElementById("cool");
 nextBtn = document.getElementById("nextBtn");
@@ -11,6 +11,7 @@ hi = document.getElementById("cool2");
 dropDown = document.getElementById("dropDown");
 option = document.createElement("option");
 options = [];
+duration = document.getElementById("audioDuration")
 
 for (i = 0; i < tracks.length; i++) {
     option.text = tracks[i].name;
@@ -64,6 +65,12 @@ function decrementIndex() {
     }
 }
 
+/*function getTime() {
+    duration.innerHTML = audio.currentTime + "/" + tracks[index].duration;
+}*/
+
 nextBtn.addEventListener("click", incrementIndex);
 prevBtn.addEventListener("click", decrementIndex);
 dropDown.onchange = changeSong;
+//setInterval(getTime, 1000);
+
