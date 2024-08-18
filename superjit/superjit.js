@@ -36,8 +36,10 @@ function updatePlaylist() {
     audio.src = mediaPath + tracks[index].file + tracks[index].extension;
     hi.innerHTML = "Now playing: " + "<b>" + tracks[index].name + "</b>";
     //console.log(index);
-    dropDown.value = index;
+    index = dropDown.value;
 }
+
+//Changes song as selected from dropdown
 
 function changeSong() {
     audio.src = mediaPath + tracks[this.value].file + tracks[this.value].extension;
