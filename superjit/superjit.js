@@ -67,12 +67,7 @@ function decrementIndex() {
     }
 }
 
-/*function getTime() {
-    duration.innerHTML = audio.currentTime + "/" + tracks[index].duration;
-}*/
-
 nextBtn.addEventListener("click", incrementIndex);
 prevBtn.addEventListener("click", decrementIndex);
 dropDown.onchange = changeSong;
-//setInterval(getTime, 1000);
 
