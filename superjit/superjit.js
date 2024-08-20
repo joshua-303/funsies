@@ -39,6 +39,8 @@ function updatePlaylist() {
     dropDown.value = index;
 }
 
+//Changes song as selected from dropdown
+
 function changeSong() {
     audio.src = mediaPath + tracks[this.value].file + tracks[this.value].extension;
     hi.innerHTML = "Now playing: " + "<b>" + tracks[this.value].name + "</b>";
@@ -65,10 +67,6 @@ function decrementIndex() {
     }
 }
 
-/*function getTime() {
-    duration.innerHTML = audio.currentTime + "/" + tracks[index].duration;
-}*/
-
 nextBtn.addEventListener("click", incrementIndex);
 prevBtn.addEventListener("click", decrementIndex);
 audio.addEventListener("timeupdate", function() {
@@ -81,5 +79,4 @@ audio.addEventListener("timeupdate", function() {
     }
 }, false);
 dropDown.onchange = changeSong;
-//setInterval(getTime, 1000);
 
