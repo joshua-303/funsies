@@ -71,6 +71,15 @@ function decrementIndex() {
 
 nextBtn.addEventListener("click", incrementIndex);
 prevBtn.addEventListener("click", decrementIndex);
+audio.addEventListener("timeupdate", function() {
+    s = parseInt(audio.currentTime % 60);
+    m = parseInt((audio.currentTime / 60) % 60);
+    if (s < 10) {
+        duration.innerHTML = m + ':0' + s + "/" + tracks[index].duration; 
+    } else {
+        duration.innerHTML = m + ':' + s + "/" + tracks[index].duration;
+    }
+}, false);
 dropDown.onchange = changeSong;
 //setInterval(getTime, 1000);
 
